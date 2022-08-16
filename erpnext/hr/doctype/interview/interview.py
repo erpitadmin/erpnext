@@ -94,8 +94,8 @@ class Interview(Document):
 	@frappe.whitelist()
 	def reschedule_interview(self, scheduled_on, from_time, to_time):
 		original_date = self.scheduled_on
-		from_time = self.from_time
-		to_time = self.to_time
+		from_time = from_time
+		to_time = to_time
 
 		self.db_set({"scheduled_on": scheduled_on, "from_time": from_time, "to_time": to_time})
 		self.notify_update()
